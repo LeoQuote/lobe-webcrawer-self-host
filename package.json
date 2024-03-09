@@ -6,7 +6,6 @@
   "homepage": "https://github.com/lobehub/chat-plugin-template",
   "repository": "https://github.com/lobehub/chat-plugin-template.git",
   "workspaces": [
-    "docs/*",
     "./*"
   ],
   "scripts": {
