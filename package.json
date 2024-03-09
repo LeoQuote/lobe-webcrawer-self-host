@@ -6,11 +6,10 @@
   "homepage": "https://github.com/lobehub/chat-plugin-template",
   "repository": "https://github.com/lobehub/chat-plugin-template.git",
   "workspaces": [
-    "docs/*",
     "./*"
   ],
   "scripts": {
-    "build": "npm run docs:build && next build",
+    "build": "next build",
     "ci": "npm run lint && npm run type-check",
     "dev": "next dev -p 3400",
     "docs:build": "cd docs && npm run build",
