@@ -6,4 +6,8 @@ export const config = {
 
 const handler = createGatewayOnEdgeRuntime();
 
-export default handler;
+export default async (req: Request) => {
+  const res = await handler(req);
+
+  return res;
+};
