@@ -7,7 +7,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     api: [
       {
         description: '提取网页内容',
-        name: 'getWebsiteContent',
+        name: 'getWebsiteContentSelfHost',
         parameters: {
           properties: {
             url: {
@@ -23,7 +23,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     ],
     author: 'LeoQuote',
     createAt: '2024-03-09',
-    gateway: `${baseUrl}/api/gateway`,
     homepage: 'https://github.com/LeoQuote/lobe-webcrawer-self-host',
     identifier: 'website-crawler-self-host',
     meta: {
