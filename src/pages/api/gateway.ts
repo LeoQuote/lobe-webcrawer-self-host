@@ -1,9 +1,9 @@
 import { createGatewayOnEdgeRuntime } from '@lobehub/chat-plugins-gateway';
 
-export const config = {
-  runtime: 'edge',
-};
-
 const handler = createGatewayOnEdgeRuntime();
 
-export default handler;
+export default async (req: Request) => {
+  const res = await handler(req);
+
+  return res;
+};
