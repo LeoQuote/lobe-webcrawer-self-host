@@ -7,6 +7,10 @@ type ResponseData = {
   content: string;
 };
 
+type RequestData = {
+  url: string;
+};
+
 export const htmlToMarkdown = (html: string, url: string) => {
   const doc = new JSDOM(html, { url });
 
@@ -16,7 +20,7 @@ export const htmlToMarkdown = (html: string, url: string) => {
   return { ...article, content };
 };
 
-async function fetchContent(data: { url: string }) {
+async function fetchContent(data: RequestData) {
   try {
     const response = await fetch(data.url);
     if (!response.ok) {
@@ -33,10 +37,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if (req.method !== 'POST') {
     res.status(405).end();
   }
-
-  const data = req.body ? JSON.parse(req.body) : {};
+  let data: RequestData = req.body;
   if (!data.url) {
-    res.status(400).end();
+    data = JSON.parse(req.body);
+    if (!data.url) {
+      res.status(400).end();
+    }
   }
   const url = data.url;
 
